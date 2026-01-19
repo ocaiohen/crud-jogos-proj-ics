@@ -1,4 +1,3 @@
-
 <html>
 	<?php
 	include('connection.php');
@@ -7,8 +6,8 @@
 	<body>
 
 	<?php
-
-	$query = 'DELETE FROM people WHERE people_id = '.$_GET['id'];
+	
+	$query = 'DELETE FROM games WHERE games_id = '.$_GET['id'];
 	$result = mysqli_query($db, $query) or die(mysqli_error($db));
 						
 	?>

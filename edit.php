@@ -1,48 +1,44 @@
-
 <?php
-	include('connection.php');
-	include('header.php');
-?>  
+include('connection.php');
+include('header.php');
+
+$gameQuery = 'SELECT * FROM games WHERE games_id ='.$_GET['id'];
+$gameResult = mysqli_query($db, $gameQuery) or die(mysqli_error($db));
+$game = mysqli_fetch_assoc($gameResult);
+
+$studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
+?>
 <body>
 
 	<h1 class="page-header">
-		PHP CRUD <small>Create, Read, Update and Delete</small>
+		Edit Game
 	</h1>
 
-	<?php 
-	$query = 'SELECT * FROM people WHERE people_id ='.$_GET['id'];
-	$result = mysqli_query($db, $query) or die(mysqli_error($db));
-
-	while($row = mysqli_fetch_array($result)) {
-
-		$id= $row['people_id'];
-		$first_name= $row['first_name'];
-		$last_name=$row['last_name'];
-		$mid_name=$row['mid_name'];
-		$address=$row['address'];
-		$contact=$row['contact'];
-		$comment=$row['comment'];
-	}
-              
-	?>
-
-	<h2>Edit Record</h2>
+	<h2>Update Game</h2>
 
 	<form method="post" action="edit_post.php">
-                            
-	    	<input type="hidden" name="id" value="<?php echo $id; ?>" />
-		<input placeholder="First Name" name="firstname" value="<?php echo $first_name; ?>"><br/><br/>
-		<input placeholder="Last Name" name="lastname" value="<?php echo $last_name; ?>"><br/><br/>
-		<input placeholder="Middle Name" name="Middlename" value="<?php echo $mid_name; ?>"><br/><br/>
-		<input placeholder="Address" name="Address" value="<?php echo $address; ?>"><br/><br/>
-		<input placeholder="Contact" name="Contact" value="<?php echo $contact; ?>"><br/><br/>
+	    	<input type="hidden" name="id" value="<?php echo $game['games_id']; ?>" />
+		<input placeholder="Game Name" name="game_name" value="<?php echo htmlspecialchars($game['game_name']); ?>" required><br/><br/>
+		<label>Studio:</label><br/>
+		<input list="studio-list" placeholder="Studio" name="studio" value="<?php echo htmlspecialchars($game['studio']); ?>" required>
+		<datalist id="studio-list">
+			<?php while ($studioRow = mysqli_fetch_assoc($studios)) { ?>
+				<option value="<?php echo htmlspecialchars($studioRow['studio_name']); ?>"></option>
+			<?php } ?>
+		</datalist>
+		<br/><br/>
+		<label>Release Date:</label><br/>
+		<input type="date" name="release_date" value="<?php echo $game['release_date']; ?>" required><br/><br/>
+		<label>Rating (0-10):</label><br/>
+		<input type="number" name="rating" min="0" max="10" step="0.1" value="<?php echo $game['rating']; ?>" required><br/><br/>
 		<label>Comment:</label><br/>
-		<textarea name="comment"><?php echo $comment; ?></textarea>
-		<button type="submit" >Update Record</button>
+		<textarea name="comment"><?php echo htmlspecialchars($game['comment']); ?></textarea>
+		<button type="submit">Update Game</button>
 		<a href="index.php">Return</a>
 
-	</form>  
+	</form>
 </body>
 
 </html>
+	</form>  
 
