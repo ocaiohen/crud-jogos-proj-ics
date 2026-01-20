@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Restricted Backend"
+AuthUserFile /etc/apache2/.htpasswd-mygames-backend
+Require valid-user
+
+# Prevent directory listings
+Options -Indexes
