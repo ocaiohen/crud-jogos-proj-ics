@@ -44,6 +44,6 @@ INSERT INTO `studios` (`studio_name`) VALUES
 INSERT INTO `games` (`game_name`, `studio`, `release_date`, `comment`, `rating`) VALUES
 ('The Legend of Zelda: Breath of the Wild', 'Nintendo', '2017-03-03', 'An open-world adventure game set in Hyrule.', 9.5),
 ('Assassin''s Creed Valhalla', 'Ubisoft', '2020-11-10', 'A Viking-themed action RPG.', 8.7),
-('FIFA 21', 'Electronic Arts', '2020-10-09', 'The latest installment in the FIFA series.', 7.8),
-('The Elder Scrolls V: Skyrim', 'Bethesda Softworks', '2011-11-11', 'An epic fantasy RPG set in the land of Skyrim.', 9.3),
-('Red Dead Redemption 2', 'Rockstar Games', '2018-10-26', 'A Western-themed action-adventure game.', 9.8);
+('FIFA 21', 'Electronic Arts', '2020-10-09', 'Same thing always. Yeah.', 6.9),
+('The Elder Scrolls V: Skyrim', 'Bethesda Softworks', '2011-11-11', 'Good as hell', 9.3),
+('Red Dead Redemption 2', 'Rockstar Games', '2018-10-26', 'I like horses and the horses ball shrinking', 10.0);
