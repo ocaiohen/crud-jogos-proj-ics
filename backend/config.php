@@ -2,9 +2,9 @@
 // Database configuration for Debian/MySQL-MariaDB
 // Edit these values to match your database server settings.
 
-define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'user_peopledb');
-define('DB_PASS', 'ifrn');
+define('DB_HOST', '192.168.100.20');
+define('DB_USER', 'ics');
+define('DB_PASS', '1234');
 define('DB_NAME', 'mygames');
 
 // URL used for redirecting back to the frontend site
