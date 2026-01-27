@@ -10,12 +10,12 @@ include('header.php');
             </div>
             <div class="card-body">
                 <?php 
-                $query = 'SELECT * FROM games WHERE games_id ='.$_GET['id'];
+                $query = 'SELECT g.*, s.studio_name FROM games g JOIN studios s ON g.studio_id = s.studio_id WHERE g.games_id ='.$_GET['id'];
                 $result = mysqli_query($db, $query) or die(mysqli_error($db));
                 
                 while($row = mysqli_fetch_array($result)) {
                     echo "<p class='mb-1'><strong>Game:</strong> {$row['game_name']}</p>";
-                    echo "<p class='mb-1'><strong>Studio:</strong> {$row['studio']}</p>";
+                    echo "<p class='mb-1'><strong>Studio:</strong> {$row['studio_name']}</p>";
                     echo "<p class='mb-1'><strong>Release Date:</strong> {$row['release_date']}</p>";
                     echo "<p class='mb-1'><strong>Comment:</strong> {$row['comment']}</p>";
                     echo "<p class='mb-0'><strong>Rating:</strong> {$row['rating']}</p>";

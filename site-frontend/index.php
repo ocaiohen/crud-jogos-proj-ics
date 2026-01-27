@@ -32,12 +32,12 @@ include('../backend/connection.php');
                         </thead>
                         <tbody>
                             <?php
-                            $query = 'SELECT * FROM games';
+                            $query = 'SELECT g.*, s.studio_name FROM games g JOIN studios s ON g.studio_id = s.studio_id';
                             $result = mysqli_query($db, $query);
                             while($row = mysqli_fetch_array($result)) {
                                 $gameId = $row['games_id'];
                                 $gameName = $row['game_name'];
-                                $studio = $row['studio'];
+                                $studio = $row['studio_name'];
                                 $releaseDate = $row['release_date'];
                                 $comment = $row['comment'];
                                 $rating = $row['rating'];

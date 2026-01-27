@@ -2,7 +2,7 @@
 include('header.php');
 include('../backend/connection.php');
 
-$gameQuery = 'SELECT * FROM games WHERE games_id ='.$_GET['id'];
+$gameQuery = 'SELECT g.*, s.studio_name FROM games g JOIN studios s ON g.studio_id = s.studio_id WHERE g.games_id ='.$_GET['id'];
 $gameResult = mysqli_query($db, $gameQuery) or die(mysqli_error($db));
 $game = mysqli_fetch_assoc($gameResult);
 
@@ -23,7 +23,7 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
             </div>
             <div class="mb-3">
                 <label class="form-label">Studio</label>
-                <input class="form-control" list="studio-list" placeholder="Studio" name="studio" value="<?php echo htmlspecialchars($game['studio']); ?>" required>
+                <input class="form-control" list="studio-list" placeholder="Studio" name="studio" value="<?php echo htmlspecialchars($game['studio_name']); ?>" required>
                 <datalist id="studio-list">
                     <?php while ($studioRow = mysqli_fetch_assoc($studios)) { ?>
                         <option value="<?php echo htmlspecialchars($studioRow['studio_name']); ?>"></option>
