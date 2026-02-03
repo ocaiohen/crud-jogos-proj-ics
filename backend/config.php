@@ -9,4 +9,8 @@ define('DB_NAME', 'mygames');
 
 // URL used for redirecting back to the frontend site
 // Ensure this matches the Apache VirtualHost for the public site.
-define('FRONTEND_BASE_URL', 'https://mygames.com.br');
+if (!defined('FRONTEND_BASE_URL')) {
+	define('FRONTEND_BASE_URL', 'http://mygames.com.br');
+}
+
+?>
