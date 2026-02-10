@@ -2,7 +2,7 @@
 include('header.php');
 include('connection.php');
 
-$studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
+$studios = mysqli_query($db, 'SELECT studio_id, studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
 ?>
 <body class="bg-light">
     <div class="container py-4">
@@ -18,12 +18,11 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
             </div>
             <div class="mb-3">
                 <label class="form-label">Estúdio</label>
-                <input class="form-control" list="studio-list" placeholder="Estúdio" name="studio" required>
-                <datalist id="studio-list">
+                <select class="form-select" name="studio_id" required>
                     <?php while ($studioRow = mysqli_fetch_assoc($studios)) { ?>
-                        <option value="<?php echo htmlspecialchars($studioRow['studio_name']); ?>"></option>
+                        <option value="<?php echo $studioRow['studio_id']; ?>"><?php echo htmlspecialchars($studioRow['studio_name']); ?></option>
                     <?php } ?>
-                </datalist>
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Data de Lançamento</label>

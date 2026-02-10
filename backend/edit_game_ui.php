@@ -6,7 +6,7 @@ $gameQuery = 'SELECT g.*, s.studio_name FROM games g JOIN studios s ON g.studio_
 $gameResult = mysqli_query($db, $gameQuery) or die(mysqli_error($db));
 $game = mysqli_fetch_assoc($gameResult);
 
-$studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
+$studios = mysqli_query($db, 'SELECT studio_id, studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
 ?>
 <body class="bg-light">
     <div class="container py-4">
@@ -23,12 +23,11 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
             </div>
             <div class="mb-3">
                 <label class="form-label">Estúdio</label>
-                <input class="form-control" list="studio-list" placeholder="Estúdio" name="studio" value="<?php echo htmlspecialchars($game['studio_name']); ?>" required>
-                <datalist id="studio-list">
+                <select class="form-select" name="studio_id" required>
                     <?php while ($studioRow = mysqli_fetch_assoc($studios)) { ?>
-                        <option value="<?php echo htmlspecialchars($studioRow['studio_name']); ?>"></option>
+                        <option value="<?php echo $studioRow['studio_id']; ?>" <?php if ($studioRow['studio_id'] == $game['studio_id']) echo 'selected'; ?>><?php echo htmlspecialchars($studioRow['studio_name']); ?></option>
                     <?php } ?>
-                </datalist>
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Data de Lançamento</label>
