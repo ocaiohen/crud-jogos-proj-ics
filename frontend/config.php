@@ -1,12 +1,15 @@
 <?php
-// Base URLs for Debian/Apache virtual hosts
-// Adjust if your virtual host names differ.
+// URLs base para os VirtualHosts (Debian/Apache)
+// Ajuste caso seus hosts virtuais tenham nomes diferentes.
 if (!defined('FRONTEND_BASE_URL')) {
 	define('FRONTEND_BASE_URL', 'http://mygames.com.br');
 }
-define('BACKEND_BASE_URL', 'http://mygames.backend.biz');
+// Defina BACKEND_BASE_URL apenas se ainda não estiver definida
+if (!defined('BACKEND_BASE_URL')) {
+	define('BACKEND_BASE_URL', 'http://mygames.backend.biz');
+}
 
-// Convenience aliases for templates
+// Aliases de conveniência para templates
 $frontendBaseUrl = FRONTEND_BASE_URL;
 $backendBaseUrl = BACKEND_BASE_URL;
 ?>

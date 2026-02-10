@@ -6,16 +6,16 @@ include('connection.php');
     <div class="container py-4">
         <header class="d-flex align-items-center justify-content-between mb-4">
             <div>
-                <h1 class="h3 mb-1">Admin Panel - Game Management</h1>
-                <p class="text-muted mb-0">Manage Games and Studios</p>
+                <h1 class="h3 mb-1">Painel Administrativo - Gerenciamento de Jogos</h1>
+                <p class="text-muted mb-0">Gerencie Jogos e Estúdios</p>
             </div>
-            <a class="btn btn-primary" href="add_game_ui.php">Add New Game</a>
+            <a class="btn btn-primary" href="add_game_ui.php">Adicionar Jogo</a>
         </header>
 
         <section class="card shadow-sm mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h2 class="h5 mb-0">List of Games</h2>
-                <span class="text-muted small">CRUD over MySQL/MariaDB</span>
+                <h2 class="h5 mb-0">Lista de Jogos</h2>
+                <span class="text-muted small">CRUD sobre MySQL/MariaDB</span>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -47,7 +47,7 @@ include('connection.php');
                                 echo "<td>$releaseDate</td>";
                                 echo "<td>$comment</td>";
                                 echo "<td>$rating</td>";
-                                echo "<td class='text-end'><a class='btn btn-sm btn-outline-primary me-2' href='".FRONTEND_BASE_URL."/detail.php?id=$gameId' target='_blank'>View</a><a class='btn btn-sm btn-outline-secondary me-2' href='edit_game_ui.php?id=$gameId'>Edit</a><a class='btn btn-sm btn-outline-danger' href='remove.php?id=$gameId'>Remove</a></td>";
+                                echo "<td class='text-end'><a class='btn btn-sm btn-outline-primary me-2' href='".FRONTEND_BASE_URL."/detail.php?id=$gameId' target='_blank'>Ver</a><a class='btn btn-sm btn-outline-secondary me-2' href='edit_game_ui.php?id=$gameId'>Editar</a><a class='btn btn-sm btn-outline-danger' href='remove.php?id=$gameId'>Remover</a></td>";
                                 echo "</tr>";
                             }
                             ?>
@@ -59,8 +59,8 @@ include('connection.php');
 
         <section class="card shadow-sm">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h2 class="h5 mb-0">Studios</h2>
-                <a class="btn btn-success btn-sm" href="add_studio_ui.php">Add New Studio</a>
+                <h2 class="h5 mb-0">Estúdios</h2>
+                <a class="btn btn-success btn-sm" href="add_studio_ui.php">Adicionar Estúdio</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -80,7 +80,7 @@ include('connection.php');
                                 $studioName = $studioRow['studio_name'];
                                 echo "<tr>";
                                 echo "<td>$studioName</td>";
-                                echo "<td class='text-end'><a class='btn btn-sm btn-outline-secondary me-2' href='edit_studio_ui.php?id=$studioId'>Edit</a><a class='btn btn-sm btn-outline-danger' href='remove_studio.php?id=$studioId'>Remove</a></td>";
+                                echo "<td class='text-end'><a class='btn btn-sm btn-outline-secondary me-2' href='edit_studio_ui.php?id=$studioId'>Editar</a><a class='btn btn-sm btn-outline-danger' href='remove_studio.php?id=$studioId'>Remover</a></td>";
                                 echo "</tr>";
                             }
                             ?>

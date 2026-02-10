@@ -6,14 +6,14 @@ include('../backend/connection.php');
     <div class="container py-4">
         <header class="d-flex align-items-center justify-content-between mb-4">
             <div>
-                <h1 class="h3 mb-1">Game Reviews</h1>
-                <p class="text-muted mb-0">Browse and Rate Games</p>
+                <h1 class="h3 mb-1">Avaliações de Jogos</h1>
+                <p class="text-muted mb-0">Navegar e avaliar jogos</p>
             </div>
         </header>
 
         <section class="card shadow-sm mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h2 class="h5 mb-0">Available Games</h2>
+                <h2 class="h5 mb-0">Jogos Disponíveis</h2>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -45,7 +45,7 @@ include('../backend/connection.php');
                                 echo "<td>$releaseDate</td>";
                                 echo "<td>$comment</td>";
                                 echo "<td>$rating</td>";
-                                echo "<td class='text-end'><a class='btn btn-sm btn-primary' href='detail.php?id=$gameId'>View & Rate</a></td>";
+                                echo "<td class='text-end'><a class='btn btn-sm btn-primary' href='detail.php?id=$gameId'>Ver e Avaliar</a></td>";
                                 echo "</tr>";
                             }
                             ?>

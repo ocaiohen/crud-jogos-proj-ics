@@ -15,28 +15,28 @@ include('header.php');
                 $row = mysqli_fetch_array($result);
                 ?>
                 <div class="mb-4">
-                    <p class="mb-1"><strong>Game:</strong> <?php echo $row['game_name']; ?></p>
-                    <p class="mb-1"><strong>Studio:</strong> <?php echo $row['studio_name']; ?></p>
-                    <p class="mb-1"><strong>Release Date:</strong> <?php echo $row['release_date']; ?></p>
-                    <p class="mb-1"><strong>Current Rating:</strong> <?php echo $row['rating']; ?></p>
-                    <p class="mb-0"><strong>Comment:</strong> <?php echo $row['comment']; ?></p>
+                    <p class="mb-1"><strong>Jogo:</strong> <?php echo $row['game_name']; ?></p>
+                    <p class="mb-1"><strong>Estúdio:</strong> <?php echo $row['studio_name']; ?></p>
+                    <p class="mb-1"><strong>Data de Lançamento:</strong> <?php echo $row['release_date']; ?></p>
+                    <p class="mb-1"><strong>Avaliação Atual:</strong> <?php echo $row['rating']; ?></p>
+                    <p class="mb-0"><strong>Comentário:</strong> <?php echo $row['comment']; ?></p>
                 </div>
-                
+
                 <hr>
 
-                <h5 class="mb-3">Rate & Review</h5>
+                <h5 class="mb-3">Avaliar e Comentar</h5>
                 <form action="<?php echo htmlspecialchars($backendBaseUrl); ?>/rate_game.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $row['games_id']; ?>">
                     <div class="mb-3">
-                        <label class="form-label">Rating (0-10)</label>
+                        <label class="form-label">Avaliação (0-10)</label>
                         <input type="number" class="form-control" name="rating" min="0" max="10" step="0.1" value="<?php echo $row['rating']; ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Comment</label>
+                        <label class="form-label">Comentário</label>
                         <textarea class="form-control" name="comment" rows="3"><?php echo htmlspecialchars($row['comment']); ?></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Review</button>
-                    <a href="index.php" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary">Enviar avaliação</button>
+                    <a href="index.php" class="btn btn-secondary">Voltar</a>
                 </form>
             </div>
         </div>
