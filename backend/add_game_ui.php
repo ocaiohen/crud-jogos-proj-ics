@@ -25,19 +25,9 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
                     <?php } ?>
                 </datalist>
             </div>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Data de Lançamento</label>
-                    <input class="form-control" type="date" name="release_date" required>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Avaliação (0-10)</label>
-                    <input class="form-control" type="number" name="rating" min="0" max="10" step="0.1" required>
-                </div>
-            </div>
-            <div class="mb-3 mt-3">
-                <label class="form-label">Comentário</label>
-                <textarea class="form-control" name="comment" rows="3"></textarea>
+            <div class="mb-3">
+                <label class="form-label">Data de Lançamento</label>
+                <input class="form-control" type="date" name="release_date" required>
             </div>
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Salvar Jogo</button>

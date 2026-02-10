@@ -30,25 +30,20 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
                     <?php } ?>
                 </datalist>
             </div>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Data de Lançamento</label>
-                    <input class="form-control" type="date" name="release_date" value="<?php echo $game['release_date']; ?>" required>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Avaliação (0-10)</label>
-                    <input class="form-control" type="number" name="rating" min="0" max="10" step="0.1" value="<?php echo $game['rating']; ?>" required>
-                </div>
-            </div>
-            <div class="mb-3 mt-3">
-                <label class="form-label">Comentário</label>
-                <textarea class="form-control" name="comment" rows="3"><?php echo htmlspecialchars($game['comment']); ?></textarea>
+            <div class="mb-3">
+                <label class="form-label">Data de Lançamento</label>
+                <input class="form-control" type="date" name="release_date" value="<?php echo $game['release_date']; ?>" required>
             </div>
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Atualizar Jogo</button>
                 <a class="btn btn-link" href="index.php">Voltar</a>
             </div>
         </form>
+        <div class="card mt-3 p-3">
+            <h6 class="mb-2">Avaliação e comentário (usuário)</h6>
+            <p class="mb-1"><strong>Avaliação atual:</strong> <?php echo htmlspecialchars($game['rating']); ?></p>
+            <p class="mb-0"><strong>Comentário atual:</strong> <?php echo htmlspecialchars($game['comment']); ?></p>
+        </div>
     </div>
 </body>
 
