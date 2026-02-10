@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-include('../backend/connection.php');
+include('connection.php');
 
 $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_name') or die(mysqli_error($db));
 ?>
@@ -11,7 +11,7 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
             <p class="text-muted mb-0">Create a new game entry</p>
         </div>
 
-        <form class="card shadow-sm p-4" method="post" action="<?php echo htmlspecialchars($backendBaseUrl); ?>/add_game.php">
+        <form class="card shadow-sm p-4" method="post" action="add_game.php">
             <div class="mb-3">
                 <label class="form-label">Game Name</label>
                 <input class="form-control" placeholder="Game Name" name="game_name" required>

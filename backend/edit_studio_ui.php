@@ -1,5 +1,5 @@
 <?php
-include('../backend/connection.php');
+include('connection.php');
 include('header.php');
 
 $query = 'SELECT * FROM studios WHERE studio_id ='.$_GET['id'];
@@ -12,7 +12,7 @@ $studio = mysqli_fetch_assoc($result);
             <h1 class="h4 mb-1">Edit Studio</h1>
             <p class="text-muted mb-0">Update studio information</p>
         </div>
-        <form class="card shadow-sm p-4" method="post" action="<?php echo htmlspecialchars($backendBaseUrl); ?>/edit_studio_post.php">
+        <form class="card shadow-sm p-4" method="post" action="edit_studio_post.php">
             <input type="hidden" name="studio_id" value="<?php echo $studio['studio_id']; ?>" />
             <div class="mb-3">
                 <label class="form-label">Studio Name</label>

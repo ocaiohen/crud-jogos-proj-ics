@@ -20,6 +20,6 @@ $query = 'UPDATE games SET game_name ="'.$game_name.'",
     ';
 mysqli_query($db, $query) or die(mysqli_error($db));
 
-header('Location: ' . FRONTEND_BASE_URL . '/index.php');
+header('Location: index.php');
 exit;
 ?>

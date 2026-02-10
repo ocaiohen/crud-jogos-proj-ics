@@ -18,6 +18,6 @@ $query = "INSERT INTO games
         VALUES (NULL,'".$game_name."','".$studio_id."','".$release_date."','".$comment."','$rating')";
 mysqli_query($db,$query) or die ('Error in Database: '.mysqli_error($db));
 
-header('Location: ' . FRONTEND_BASE_URL . '/index.php');
+header('Location: index.php');
 exit;
 ?>

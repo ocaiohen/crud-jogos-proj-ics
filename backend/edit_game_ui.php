@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-include('../backend/connection.php');
+include('connection.php');
 
 $gameQuery = 'SELECT g.*, s.studio_name FROM games g JOIN studios s ON g.studio_id = s.studio_id WHERE g.games_id ='.$_GET['id'];
 $gameResult = mysqli_query($db, $gameQuery) or die(mysqli_error($db));
@@ -15,7 +15,7 @@ $studios = mysqli_query($db, 'SELECT studio_name FROM studios ORDER BY studio_na
             <p class="text-muted mb-0">Update existing game</p>
         </div>
 
-        <form class="card shadow-sm p-4" method="post" action="<?php echo htmlspecialchars($backendBaseUrl); ?>/edit_game.php">
+        <form class="card shadow-sm p-4" method="post" action="edit_game.php">
             <input type="hidden" name="id" value="<?php echo $game['games_id']; ?>" />
             <div class="mb-3">
                 <label class="form-label">Game Name</label>
